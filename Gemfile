@@ -7,7 +7,7 @@ gem 'rails', '~> 6.0.0.rc2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'devise'
+gem 'devise-jwt'
 
 
 group :development, :test do
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'dotenv-rails'
 end
 
 group :development do
