@@ -37,7 +37,7 @@ RSpec.describe 'POST /login', type: :request do
     before { post url }
     
     it 'returns unathorized status' do
-      expect(response.status).to eq(:unauthorized)
+      expect(response).to have_http_status(:unauthorized)
     end
   end
 end

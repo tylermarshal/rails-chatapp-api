@@ -15,7 +15,7 @@ RSpec.describe 'POST /signup', type: :request do
     before { post url, params: params }
 
     it 'returns 200' do
-      expect(response.status).to eq(:ok)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'returns a new user' do
@@ -31,7 +31,7 @@ RSpec.describe 'POST /signup', type: :request do
     end
 
     it 'returns bad request status' do
-      expect(response.status).to eq(:bad_request)
+      expect(response).to have_http_status(:bad_request)
     end
 
     it 'returns validation errors' do
