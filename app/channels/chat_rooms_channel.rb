@@ -1,6 +1,12 @@
 class ChatRoomsChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "chat_rooms_#{params['chat_room_id']}_channel" if params['chat_room_id'].present?
+    chat_room = ChatRoom.find_by(id: params[:chat_room_id])
+    if chat_room.present?
+      stream_from "chat_rooms_#{params['chat_room_id']}_channel"
+    else
+      connection.transmit(error: "Chat room does not exist.")
+      reject
+    end
   end
 
   def send_message(data)
