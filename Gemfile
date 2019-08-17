@@ -19,6 +19,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'dotenv-rails'
+  gem 'action-cable-testing'
 end
 
 group :development do
