@@ -10,4 +10,8 @@ RSpec.describe ChatRoom, type: :model do
     it { should have_many(:users).through(:chat_rooms_users) }
     it { should have_many(:messages) }
   end
+
+  describe 'validations' do
+    it { should validate_uniqueness_of(:title) }
+  end
 end
