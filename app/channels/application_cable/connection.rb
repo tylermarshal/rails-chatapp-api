@@ -9,7 +9,9 @@ module ApplicationCable
 
     private
       def find_verified_user
-        if verified_user && env['warden'].user
+        verified_user = User.find_by(token: request.params[:token])
+        if verified_user.present?
+          verified_user.regenerate_token
           verified_user
         else
           reject_unauthorized_connection
