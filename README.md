@@ -1,24 +1,59 @@
-# README
+# ChatApp API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A chat application API that uses ActionCable to open a TCP connection and push user messages through websockets in real time. 
 
-Things you may want to cover:
+## Setup & Installation
 
-* Ruby version
+Clone the repository into a directory of your choosing.
 
-* System dependencies
+```
+git clone git@github.com:tylermarshal/rails-chatapp-api.git
+```
 
-* Configuration
+Move into the directory & install the required gems.
 
-* Database creation
+```
+cd rails-chatapp-api
+```
+```
+bundle install
+```
 
-* Database initialization
+From here you will need to create the PostgreSQL database and tables:
 
-* How to run the test suite
+```
+rails db:create db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+The application uses Devise JWT for authentication. You will need to generate a secret key:
 
-* Deployment instructions
+```
+rake secret
+```
 
-* ...
+Create a `.env` file in the root directory of your application and place the following environment variable in this file:
+
+```
+DEVISE_JWT_SECRET_KEY=<your secret key here>
+```
+
+Start a rails server and visit http://localhost:3000/:
+
+```
+rails s
+```
+
+This is only an API and a connection will need to be established on the client-side.
+
+
+## Testing
+
+To run the test suite, you can execute the following in your terminal:
+
+```
+bundle exec rspec
+```
+
+## Creator
+[Tyler Madsen](https://github.com/tylermarshal)
+
