@@ -10,7 +10,7 @@ Clone the repository into a directory of your choosing.
 git clone git@github.com:tylermarshal/rails-chatapp-api.git
 ```
 
-Move into the directory & install the required gems.
+Move into the directory & install dependencies.
 
 ```
 cd rails-chatapp-api
@@ -19,7 +19,7 @@ cd rails-chatapp-api
 bundle install
 ```
 
-From here you will need to create the PostgreSQL database and tables:
+From here you will need to create the PostgreSQL development/testing databases and run migrations:
 
 ```
 rails db:create db:migrate
