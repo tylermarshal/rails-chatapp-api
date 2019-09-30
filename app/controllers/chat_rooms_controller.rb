@@ -1,4 +1,6 @@
 class ChatRoomsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     chat_rooms = ChatRoom.sort_by_title
     render json: chat_rooms
